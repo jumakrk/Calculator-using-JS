@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Calculator</title>
+</head>
+<body class="flex justify-center">
+  <div id="Calculator" class="bg-black w-1/5 h-1/2 mt-20 rounded-3xl">
+    <h1 class="text-white text-center mt-2 font-black text-3xl">Calculator</h1>
+    <!-- the readonly in the input helps so that one is not able to type in the input section -->
+    <input class="bg-gray-700 ml-2 mt-4 h-12 w-72 pl-2 rounded-2xl text-3xl text-white" id="display" readonly>
+    <!-- div for all button keys --> <!--appendToDisplay helps when you click on the button whatever value is in the function will be displayed-->
+    <div class="ml-1 mt-12 text-3xl font-semibold pb-2 text-center" id="btns">
+      <button class="bg-blue-600 hover:bg-blue-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('+')">+</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('7')">7</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('8')">8</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('9')">9</button>
+      <button class="bg-blue-600 hover:bg-blue-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('-')">-</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('4')">4</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('5')">5</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('6')">6</button>
+      <button class="bg-blue-600 hover:bg-blue-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('*')">x</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('1')">1</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('2')">2</button>
+      <button class="bg-gray-400 hover:bg-gray-300 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('3')">3</button>
+      <button class="bg-blue-600 hover:bg-blue-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('/')">/</button>
+      <button class="bg-blue-600 hover:bg-blue-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="appendToDisplay('.')">.</button>
+      <button class="bg-red-500 hover:bg-red-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="clearDisplay('C')">C</button>
+      <button class="bg-green-500 hover:bg-green-700 rounded-full mb-2 pt-4 pb-5 pl-6 pr-6" onclick="calculate('=')">=</button>
+    </div>
+  </div>
+  <script>
+    const display = document.querySelector("#display");
+
+    function appendToDisplay(input) {
+      // the += helps to make the values continue displaying without replacing each other in the input display
+      display.value += input;
+    }
+
+    function clearDisplay(input) {
+      // the empty question marks are an empty string which tells the button to display nothing on the input since the string is empty
+      display.value = "";
+    }
+
+    function calculate() {
+      // the eval is used in calculations it's like javascripts' own calculator
+      display.value = eval(display.value);
+    }
+
+    // try and catch
+  </script>
+</body>
+</html>
